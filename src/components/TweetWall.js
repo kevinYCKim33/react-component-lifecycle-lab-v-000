@@ -11,7 +11,9 @@ class TweetWall extends React.Component {
   }
 
   componentWillMount() {
-    this.state.tweets = this.props.newTweets;
+    this.setState({
+      tweets: this.props.newTweets
+    })
   }
 
   shouldComponentUpdate(nextProp) {
@@ -23,6 +25,7 @@ class TweetWall extends React.Component {
     const newTweets = nextProp.newTweets;
     this.setState({
       tweets: newTweets.concat(this.state.tweets),
+      //tweets: [...nextProps.newTweets, ...this.state.tweets]
     })
   }
 
